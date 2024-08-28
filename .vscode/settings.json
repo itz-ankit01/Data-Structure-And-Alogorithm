@@ -1,0 +1,11 @@
+{
+    "cph.general.saveLocation": "",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "cmath": "cpp",
+        "new": "cpp",
+        "string": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
+}
