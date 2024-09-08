@@ -10,7 +10,9 @@ output
 
 2 2 3
 3 4
-7  */void printS(int *arr, int index, int n, int target, vector<int>&ans){
+7 
+ */
+void printS(int *arr, int index, int n, int target, vector<int>&ans){
     // Base Case
     if(index == n){
     return;
