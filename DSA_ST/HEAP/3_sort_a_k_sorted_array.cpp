@@ -23,33 +23,38 @@ typedef unordered_map<long long, long long> ull;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 
 ll int M=1e9+7;
+vector <ll int> seive;
 
 int main() {
     fastio();
-
     int n, k;
     cin >> n >> k;
     vi v(n);
-    for(int i=0; i<n; i++) cin >> v[i];
-
-    priority_queue<int, vector<int>, greater<int>> minh;
+    priority_queue<int, vi, greater<int>> minh;
+    for(int i=0; i<n; i++){
+        cin >> v[i];
+    }
+    vi t;
     for(int i=0; i<n; i++){
         minh.push(v[i]);
         if(minh.size() > k){
+            t.pb(minh.top());
             minh.pop();
         }
     }
-
-    while (minh.size() > 0){
-        cout << minh.top() << " ";
+    while(minh.size() > 0){
+        t.pb(minh.top());
         minh.pop();
     }
+    for(auto it : t){
+        cout << it << " ";
+    }
     cout << endl;
+
     return 0;
 }
 
-// input 
-// 6, 3
-// 7 10 4 3 20 15
-
-// op: 20 10 15
+/**
+ * arr [] = [6, 5, 3, 2, 8, 10, 9]
+ * k = 3
+ */
