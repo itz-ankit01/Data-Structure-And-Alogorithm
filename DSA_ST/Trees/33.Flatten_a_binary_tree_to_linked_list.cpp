@@ -65,17 +65,15 @@ public:
     void flatten(TreeNode* root) {
         while(root != nullptr) {
             if(root -> left == nullptr) {
-                root = root -> right;
-            }
-            else {
                 TreeNode* prev = root -> left;
                 while(prev -> right) {
                     prev = prev -> right;
                 }
                 prev -> right = root -> right;
                 root -> right = root -> left;
-                root = root -> right;
+                root -> left = nullptr;
             }
+            root = root -> right;
         }
     }
 };
