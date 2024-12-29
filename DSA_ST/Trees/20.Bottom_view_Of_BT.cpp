@@ -35,7 +35,4 @@ vector<int> BottomViewOfBT(Node* root){
     }
     return ans;
 }
-int main() {
 
-    return 0;
-}
