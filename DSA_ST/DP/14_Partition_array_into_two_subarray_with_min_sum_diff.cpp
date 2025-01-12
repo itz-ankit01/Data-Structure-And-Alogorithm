@@ -23,9 +23,9 @@ public:
 
         vector<vector<int>> dp(n+1, vector<int>(totalSum + 1, -1));
         int mini = INT_MAX;
-        for(int i = 0; i <= totalSum; i++) {
+        for(int i = 0; i <= totalSum/2; i++) {
             if(dp[n-1][i] == true) {
-                mini = min(mini, totalSum - i);
+                mini = min(mini, abs((totalSum - i) - i));
             }
         }
         return mini;
