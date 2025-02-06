@@ -44,13 +44,14 @@ void addRightBoundary(Node* root, vector<int> &res){
         if(curr->right) curr = curr -> right;
         else curr = curr -> left;
     }
+    reverse(temp.begin(), temp.end()); // Right boundary should be stored in reverse
+    res.insert(res.end(), temp.begin(), temp.end());
 }
 
 vector<int> boundaryTraversal(Node* root){
     vector<int> res;
     if(root == nullptr) return res;
-    queue<Node*> q;
-    if(!isLeaf(root)) q.push(root);
+    if(!isLeaf(root)) res.push(root);
     addLeftBoundary(root, res);
     addLeaves(root, res);
     addRightBoundary(root, res);
