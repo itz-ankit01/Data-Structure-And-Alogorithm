@@ -39,6 +39,7 @@ vector<int> distanceAtK(Node* root, int k, Node* target) {
 
     unordered_map<Node*, bool> visited;
     queue<Node*> q;
+    q.push(target);
     visited[target] = true;
 
     int dis = 0;
