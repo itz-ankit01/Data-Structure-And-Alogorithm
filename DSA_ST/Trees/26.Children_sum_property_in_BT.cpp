@@ -36,7 +36,3 @@ void changeBinaryTree(Node* root){
 
     if(root -> left or root -> right) root -> data = tot;
 }
-int main() {
-
-    return 0;
-}

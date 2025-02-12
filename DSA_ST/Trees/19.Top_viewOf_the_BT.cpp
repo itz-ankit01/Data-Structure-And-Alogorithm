@@ -35,16 +35,10 @@ vector<int> TopViewOfBT(Node* root){
         if(node->right){
             q.push({node->right, line+1});
         }
-        return ans;
     }
 
     for(auto &it: mpp){
         ans.pb(it.second);
     }
-
-}
-
-int main() {
-
-    return 0;
+    return ans;
 }
