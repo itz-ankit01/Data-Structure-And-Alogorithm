@@ -42,10 +42,10 @@ int main(){
 
 // ----------------- Clear LSB bit ----------------------
 
-    // int i = 4;
-    // printBinary(59);
-    // int a = 59;
-    // printBinary(a & ~((1<<(i+1))-1));
+    int i = 4;
+    printBinary(59);
+    int a = 59;
+    printBinary(a & ~((1<<(i+1))-1));
 
 
 /*
@@ -74,8 +74,8 @@ int main(){
 
     // check power of 2
     
-    int a = 15;
-    if(! (a & (a-1))) cout << "Power of 2";
-    else cout <<"No" << endl;
-    return 0;
+    // int a = 15;
+    // if(! (a & (a-1))) cout << "Power of 2";
+    // else cout <<"No" << endl;
+    // return 0;
 }

@@ -3,7 +3,7 @@ using namespace std;
 
 // BOOK ALLOCATION PROBLEM
 // You have N books and M students. Each book has a certain number of pages, and you have to assign the books to the students such that the maximum number of pages assigned to any student is minimized. Each student must be assigned at least one book. You cannot split a book across multiple students
-/*
+
         bool isPossible(int arr[], int m, int n, int mid){
             int studentCount = 1;
             int pageSum = 0;
@@ -54,7 +54,7 @@ using namespace std;
             int minPage = allocateBooks(arr, n, m);
             cout << minPage <<endl;
             return 0;
-        }                 */
+        }                 
 
 
 // PAINTER PARTITION PROBLEM
@@ -119,62 +119,62 @@ using namespace std;
 // AGGRESIVE COWS
 // Given an array of length N , whr each element denotes the position of a stall . Now you have N stalls and an integer K which denotes the no of cows that are aggresive. To prevent the cows from hurting eachother you need to assign the cows to the stalls , such that the minimum distance between any two of them is asa large as possible. Return the largest minimum distance.
 
-        #include<algorithm>
-        bool isPossibleSolution(int arr[], int n, int k, int mid){
-            int cowCount = 1;
-            int lastPos = arr[0];
+        // #include<algorithm>
+        // bool isPossibleSolution(int arr[], int n, int k, int mid){
+        //     int cowCount = 1;
+        //     int lastPos = arr[0];
 
-            for(int i = 0; i < n; i++){
-                if(arr[i] - lastPos >= mid){
-                    cowCount++;
-                    if(cowCount == k){
-                        return true;
-                    }
-                    lastPos = arr[i];
-                }
-            }
-            return false;
+        //     for(int i = 0; i < n; i++){
+        //         if(arr[i] - lastPos >= mid){
+        //             cowCount++;
+        //             if(cowCount == k){
+        //                 return true;
+        //             }
+        //             lastPos = arr[i];
+        //         }
+        //     }
+        //     return false;
 
-        }
-        int aggresiveCows(int arr[], int n, int k){
-            int s = 0;
-            int ans = -1;
-            int maxi = -1;
-            int mini = -1;
-            for(int i = 0; i < n; i++){
-                    if(arr[i] > maxi){
-                        maxi = arr[i];
-                    }
-                    if(arr[i] < mini){
-                        mini = arr[i];
-                    }
-            }
-            int e = (maxi - mini);
-            int mid = s + (e - s)/2;
-            while(s <= e){
-                if(isPossibleSolution(arr, n, k, mid)){
-                    ans = mid;
-                        s = mid + 1;
-                }
-                else {
-                    e = mid - 1;
-                }
-                 mid = s + (e - s)/2;
-            }
-            return ans;
-        }
-            int main(){
-            int n;
-            cin>>n;
-            int arr[n];
-            int k;     // no of agressive cows
-            cin>>k;
-            for(int i = 0; i<n; i++){
-                cin >> arr[i];
-            }
-            sort(arr, arr+n);
+        // }
+        // int aggresiveCows(int arr[], int n, int k){
+        //     int s = 0;
+        //     int ans = -1;
+        //     int maxi = -1;
+        //     int mini = -1;
+        //     for(int i = 0; i < n; i++){
+        //             if(arr[i] > maxi){
+        //                 maxi = arr[i];
+        //             }
+        //             if(arr[i] < mini){
+        //                 mini = arr[i];
+        //             }
+        //     }
+        //     int e = (maxi - mini);
+        //     int mid = s + (e - s)/2;
+        //     while(s <= e){
+        //         if(isPossibleSolution(arr, n, k, mid)){
+        //             ans = mid;
+        //                 s = mid + 1;
+        //         }
+        //         else {
+        //             e = mid - 1;
+        //         }
+        //          mid = s + (e - s)/2;
+        //     }
+        //     return ans;
+        // }
+        //     int main(){
+        //     int n;
+        //     cin>>n;
+        //     int arr[n];
+        //     int k;     // no of agressive cows
+        //     cin>>k;
+        //     for(int i = 0; i<n; i++){
+        //         cin >> arr[i];
+        //     }
+        //     sort(arr, arr+n);
 
-            cout << "Largest Minimum dist between two stall is " << aggresiveCows(arr, n, k) << endl;
-                return 0;
-            }
+        //     cout << "Largest Minimum dist between two stall is " << aggresiveCows(arr, n, k) << endl;
+        //         return 0;
+        //     }
            

@@ -4,29 +4,30 @@
 using namespace std;
 
 
-/*
-int main()
-{
-    // DIFFERENT METHOF OF INITIALISATION OF STRING
-    char x = 'A';
 
-    char s1[10] = "Hello";
-    cout << s1 << endl;
+// int main()
+// {
+//     // DIFFERENT METHOF OF INITIALISATION OF STRING
+//     char x = 'A';
 
-    char s2[] = "Hello";
-    cout << s2 << endl;
+//     char s1[10] = "Hello";
+//     cout << s1 << endl;
 
-    char s3[] = {'H', 'e', 'l', 'l', 'o', '\0', 'p', 'p', 'p', 'p', 'p'};
-    cout << s3 << endl;
+//     char s2[] = "Hello";
+//     cout << s2 << endl;
 
-    char s4[] = {65, 66, 67, 68, '\0'};
-    cout << s4 << endl;
+//     char s3[] = {'H', 'e', 'l', 'l', 'o', '\0', 'p', 'p', 'p', 'p', 'p'};
+//     cout << s3 << endl;
 
-    char *s5 = "Hello";
-    cout << s5 << endl;
+//     char s4[] = {65, 66, 67, 68, '\0'};
+//     cout << s4 << endl;
 
-    return 0;
-}                */
+//     const char *s5 = "Hello";
+//     cout << s5 << endl;
+
+//     return 0;
+// }   
+             
 
 // READING AND PRINTING STRING
 // to take input ->> cin>>s;  ,   cin.get(s,100);  ,  cin.getline(s,100);
@@ -573,15 +574,15 @@ int main()
 
 // FIND THE USERNAME FROM THE EMAIL ADDRESS
 
-    int main(){
+    // int main(){
 
-        string email ;
-        getline(cin, email);
+    //     string email ;
+    //     getline(cin, email);
 
-        int i = email.find('@');
+    //     int i = email.find('@');
 
-        string uname = email.substr(0,i);
+    //     string uname = email.substr(0,i);
 
-        cout << "The user name is " << uname << endl;
-        return 0;
-    }
+    //     cout << "The user name is " << uname << endl;
+    //     return 0;
+    // }

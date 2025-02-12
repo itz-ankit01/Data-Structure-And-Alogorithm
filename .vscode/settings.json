@@ -1,6 +1,11 @@
 {
     "cph.general.saveLocation": "",
     "files.associations": {
-        "vector": "cpp"
+        "*.css": "tailwindcss",
+        "*.scss": "tailwindcss",
+        "vector": "cpp",
+        "bitset": "cpp",
+        "set": "cpp",
+        "ostream": "cpp"
     }
 }

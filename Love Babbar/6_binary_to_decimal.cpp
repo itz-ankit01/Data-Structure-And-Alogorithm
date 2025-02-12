@@ -4,22 +4,22 @@ using namespace std;
 int main()
 {
 // CONVERTING DECIMAL TO BINARY NUMBER
-/*
-    int n;
-    cin >> n;
-    int ans = 0;
-    int i = 0;
-    while (n != 0)
-    {
-        int bit = n & 1; // for getting last bit
-        ans = (bit * pow(10, i)) + ans;
-        n = n >> 1; // for removing last bit
-        i++;
-    }
-    cout <<"Answer is "<< ans << endl;              */
+
+    // int n;
+    // cin >> n;
+    // int ans = 0;
+    // int i = 0;
+    // while (n != 0)
+    // {
+    //     int bit = n & 1; // for getting last bit
+    //     ans = (bit * pow(10, i)) + ans;
+    //     n = n >> 1; // for removing last bit
+    //     i++;
+    // }
+    // cout <<"Answer is "<< ans << endl;              
 
 //  CONVERTING NEGATIVVE DECIMAL TO BINARY
-/*
+
     int n;
     cin>>n;
     int ans = 0; 
@@ -33,7 +33,7 @@ int main()
         n = n>>1;
         i++;
     } 
-    cout << " Answer is " << ans << endl;              */
+    cout << " Answer is " << ans << endl;              
 
 // BINARY TO DECIMAL CONVERSION
 /*

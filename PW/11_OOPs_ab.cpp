@@ -2,41 +2,41 @@
 using namespace std;
 
 // CLASS IN C++
-/*
-class Rectangle {
-    public:
-        int length;
-        int breadth;
 
-        int area (){
-            return length * breadth;
-        }
+// class Rectangle {
+//     public:
+//         int length;
+//         int breadth;
 
-        int perimeter (){
-            return 2 * (length + breadth);
-        }
-};
+//         int area (){
+//             return length * breadth;
+//         }
 
-int main(){
+//         int perimeter (){
+//             return 2 * (length + breadth);
+//         }
+// };
 
-    Rectangle r1, r2;
+// int main(){
 
-    r1.length = 10;
-    r1.breadth = 5;  
+//     Rectangle r1, r2;
 
-    cout << "Area is " << r1.area() << endl;
-    cout << "Perimeter is " << r1.perimeter() << endl;
+//     r1.length = 10;
+//     r1.breadth = 5;  
 
-    r2.length = 15;
-    r2.breadth = 10;
+//     cout << "Area is " << r1.area() << endl;
+//     cout << "Perimeter is " << r1.perimeter() << endl;
 
-    cout << "Area of r2 is " << r2.area() << endl;
-    cout << "Perimeter of r2 is " << r2.perimeter() << endl;
-    return 0;
-}          */
+//     r2.length = 15;
+//     r2.breadth = 10;
+
+//     cout << "Area of r2 is " << r2.area() << endl;
+//     cout << "Perimeter of r2 is " << r2.perimeter() << endl;
+//     return 0;
+// }          
 
 // POINTER TO A OBJECT STACK
-/*
+
 class Rectangle {
     public :
         int length;
@@ -64,7 +64,7 @@ class Rectangle {
             cout << "The perimeter of r1 is " << ptr -> perimeter() << endl;
         return 0;
         
-    }            */
+    }            
 
 // POINTER TO A OBJECT IN HEAP
 /*
@@ -339,49 +339,51 @@ class Demo {
 
 //  WRITE A CLASS FOR STUDENT WITH ROLL, NAME, MARKS IN 3 SUBJECTS, FUNCTIONS FOR TOTAL MARKS, GRADE, AND REQUIRED METHOD
 
-class Student {
-    private :
-        int roll;
-        string name;
-        int mathMarks;
-        int phyMarks;
-        int chemMarks;
+// class Student {
+//     private :
+//         int roll;
+//         string name;
+//         int mathMarks;
+//         int phyMarks;
+//         int chemMarks;
 
-    public :
-        Student (int r, string n, int m, int p, int c){
-            roll = r;
-            name = n;
-            mathMarks = m;
-            phyMarks = p;
-            chemMarks = c;
-        }
-        int total (){
-            return mathMarks + phyMarks + chemMarks;
-        }
-        char grade (){
-            float average = total()/3;
-            if(average > 60) return 'A';
-            else if(average <= 60 && average >= 40) return 'B';
-            else return 'C';
-        }
-};
-int main(){
+//     public :
+//         Student (int r, string n, int m, int p, int c){
+//             roll = r;
+//             name = n;
+//             mathMarks = m;
+//             phyMarks = p;
+//             chemMarks = c;
+//         }
+//         int total (){
+//             return mathMarks + phyMarks + chemMarks;
+//         }
+//         char grade (){
+//             float average = total()/3;
+//             if(average > 60) return 'A';
+//             else if(average <= 60 && average >= 40) return 'B';
+//             else return 'C';
+//         }
+// };
 
-    int roll; 
-    string name;
-    int m, p, c;
-    cout << "Enter the name of Student " ;
-    cin >> name;
-    cout << "Enter the roll number of student ";
-    cin >> roll;
-    cout << "Enter the Marks of 3 Subjects ";
-    cin >> m >> p >> c;
 
-    Student s(roll, name, m, p, c);
+// int main(){
 
-    cout << "Name -> " << name << endl;
-    cout << "Roll Number " << roll << endl;
-    cout << "Total Marks " << s.total() << endl;
-    cout << "Grade -> " << s.grade() << endl;
-    return 0;
-}
+//     int roll; 
+//     string name;
+//     int m, p, c;
+//     cout << "Enter the name of Student " ;
+//     cin >> name;
+//     cout << "Enter the roll number of student ";
+//     cin >> roll;
+//     cout << "Enter the Marks of 3 Subjects ";
+//     cin >> m >> p >> c;
+
+//     Student s(roll, name, m, p, c);
+
+//     cout << "Name -> " << name << endl;
+//     cout << "Roll Number " << roll << endl;
+//     cout << "Total Marks " << s.total() << endl;
+//     cout << "Grade -> " << s.grade() << endl;
+//     return 0;
+// }
