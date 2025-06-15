@@ -17,7 +17,7 @@ public:
         cuts.push_back(n);
         sort(cuts.begin(), cuts.end());
         int m = cuts.size();
-        vector<vector<long long>> dp(m+2, vector<long long>(m+2, 0));
+        vector<vector<long long>> dp(m+1, vector<long long>(m+1, 0));
 
         for(int i=m-2; i>=1; i--) {
             for(int j=1; j<=m-2; j++) {
