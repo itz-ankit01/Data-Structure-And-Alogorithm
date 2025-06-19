@@ -14,7 +14,19 @@ class Solution {
 public:
     int maxSumAfterPartitioning(vector<int>& arr, int k) {
         int n = arr.size();
-        vector<int> dp(n+1, -1);
-        return fun(0, arr, k, dp);
+        vector<int> dp(n+1, 0);
+
+        for(int i = n-1; i >=0 ; i--) {
+            int maxi = -1e9;
+            int el = 0;
+            for(int j=i; j < min((int)arr.size(), i + k);  j++) {
+                el = max(el, arr[j]);
+                int sum = (j - i + 1) * el + dp[j+1];
+                maxi = max(maxi, sum); 
+            }
+            dp[i] =  maxi;
+        }
+        return dp[0];
+
     }
 };
