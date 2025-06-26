@@ -1,28 +1,21 @@
 class Solution {
         void fun(int row, int col, vector<vector<int>> &vis, vector<vector<int>>&grid, int delRow[], int delCol[]) {
         vis[row][col] = 1;
-        queue<pair<int,int>> q;
-        q.push({row, col});
+        
 
         int n = grid.size();
         int m = grid[0].size();
 
-        while(!q.empty()) {
-            int row = q.front().first;
-            int col = q.front().second;
-
-            q.pop();
-
+       
             for(int i=0; i<4; i++) {
                 int nrow = row + delRow[i];
                 int ncol = col + delCol[i];
 
                 if(nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && !vis[nrow][ncol] && grid[nrow][ncol] ==  1) {
-                    vis[nrow][ncol] = 1;
-                    q.push({nrow, ncol});
+                    fun(nrow, ncol, vis, grid, delRow, delCol);
                 }
             }
-        }
+        
     }
 public:
     int numEnclaves(vector<vector<int>>& grid) {
