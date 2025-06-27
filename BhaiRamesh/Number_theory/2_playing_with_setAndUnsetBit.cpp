@@ -2,8 +2,9 @@
 using namespace std;
 
 void printBinary(int num){
-    for(int i = 10; i >= 0; --i){
-        cout << ((num >> i) & 1) ;
+    int a = (int)(log2f(num)) + 1;
+    for(int i = a-1; i >= 0; --i){
+        cout << ((num >> i) & 1);
     }
     cout << endl;
 }
@@ -20,7 +21,7 @@ int main(){
 
     // -------------------------- set ith bit
 
-    // cout << "ith set bit";
+    // cout << "ith set bit  ";
     // printBinary( (1 << i) | n );
 
     // ---------------------- check ith bit is set or not
@@ -47,9 +48,6 @@ int main(){
     cout << "No of set bit " << ct << endl;
     cout << __builtin_popcount(n) << endl; 
     cout << __builtin_popcountll((1LL<<35)-1) << endl; 
-
-
-
 
     return 0;
 }
