@@ -21,6 +21,8 @@ public:
             int row = it.second.first;
             int col = it.second.second;
 
+            if(row == n-1 && col == n-1) return wt;
+
             for(int i = 0; i < 4; i++) {
                 int nrow = row + dr[i];
                 int ncol = col + dc[i];
