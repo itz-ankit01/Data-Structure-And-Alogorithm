@@ -1,58 +1,117 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+struct FT {
+    int n;
+    vector<int> bit;
+    FT(int _n) : n(_n), bit(n + 1, 0) {}
+
+    void add(int i, int v) {
+        while (i <= n) {
+            bit[i] += v;
+            i += i & -i;
+        }
+    }
+
+    void range_add(int l, int r, int v) {
+        add(l, v);
+        add(r + 1, -v);
+    }
+
+    int query(int i) {
+        int res = 0;
+        while (i > 0) {
+            res += bit[i];
+            i -= i & -i;
+        }
+        return res;
+    }
+};
+
+int n, LG, t;
+vector<vector<int>> g;
+vector<int> in, out, d;
+vector<vector<int>> up;
+
+void dfs(int u, int p) {
+    in[u] = ++t;
+    up[0][u] = p;
+    for (int v : g[u]) {
+        if (v != p) {
+            d[v] = d[u] + 1;
+            dfs(v, u);
+        }
+    }
+    out[u] = t;
+}
+
+int jump(int u, int k) {
+    for (int i = 0; i < LG; ++i) {
+        if ((k >> i) & 1)
+            u = up[i][u];
+    }
+    return u;
+}
+
+bool check(int H, int K, const vector<int>& ord) {
+    FT ft(n);
+    int cnt = 0;
+    for (int u : ord) {
+        if (d[u] <= H) break;
+        if (ft.query(in[u]) > 0) continue;
+        int anc = jump(u, d[u] - (H - 1));
+        cnt++;
+        if (cnt > K) return false;
+        ft.range_add(in[anc], out[anc], 1);
+    }
+    return true;
+}
+
+int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(0);
 
-    int N;
-    cin >> N;
-    vector<string> words(N);
-    for(int i = 0; i < N; i++){
-        cin >> words[i];
+    int m, K;
+    cin >> n >> m;
+    g.assign(n + 1, {});
+    for (int i = 0; i < m; ++i) {
+        int u, v;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
     }
+    cin >> K;
 
-    // count all substrings of length >=3
-    unordered_map<string,int> freq;
-    freq.reserve(100000);
-    for(auto &w : words){
-        int L = w.size();
-        // for every start i
-        for(int i = 0; i < L; i++){
-            // for every end j such that length >=3
-            for(int j = i+3; j <= L; j++){
-                // substring w[i..j-1]
-                freq[w.substr(i, j-i)]++;
-            }
+    LG = log2(n) + 1;
+    up.assign(LG, vector<int>(n + 1));
+    in.assign(n + 1, 0);
+    out.assign(n + 1, 0);
+    d.assign(n + 1, 0);
+    t = 0;
+
+    dfs(1, 1);
+
+    for (int i = 1; i < LG; ++i)
+        for (int u = 1; u <= n; ++u)
+            up[i][u] = up[i - 1][up[i - 1][u]];
+
+    vector<int> ord(n);
+    iota(ord.begin(), ord.end(), 1);
+    sort(ord.begin(), ord.end(), [](int a, int b) {
+        return d[a] > d[b];
+    });
+
+    int lo = 1, hi = *max_element(d.begin(), d.end()), ans = hi;
+    while (lo <= hi) {
+        int mid = (lo + hi) / 2;
+        if (check(mid, K, ord)) {
+            ans = mid;
+            hi = mid - 1;
+        } else {
+            lo = mid + 1;
         }
     }
 
-    vector<string> ans;
-    ans.reserve(freq.size());
-    // pick those with count >= 2
-    for(auto &kv : freq){
-        if(kv.second >= 2){
-            string s = kv.first;
-            // try next lexicographic permutation
-            string t = s;
-            if(next_permutation(t.begin(), t.end())){
-                ans.push_back(t);
-            } else {
-                ans.push_back(s);
-            }
-        }
-    }
-
-    // unique & sort
-    sort(ans.begin(), ans.end());
-    ans.erase(unique(ans.begin(), ans.end()), ans.end());
-
-    // output
-    for(int i = 0; i < (int)ans.size(); i++){
-        if(i) cout << ' ';
-        cout << ans[i];
-    }
-    cout << "\n";
-
+    cout << ans << '\n';
     return 0;
 }
