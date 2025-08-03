@@ -1,17 +1,12 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        priority_queue<int, vector<int>, greater<int> > minh;
+        int mx = 0;
         for(int i = 0; i < nums.size(); i++) {
-            if(nums[i] != 0) {
-                minh.push(i + nums[i]);
+            if(i > mx) {
+                return false;
             }
-            else {
-                while(!minh.empty() && minh.top() <= i) {
-                    minh.pop();
-                }
-            }
-            if(minh.size() == 0 && i!= nums.size()-1) return false;
+            else mx = max(mx, i+nums[i]);
         }
         return true;
     }
