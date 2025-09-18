@@ -1,15 +1,13 @@
 class Solution {
+    int mex(vector<int>&nums) {
+        unordered_set<int>s(nums.begin(), nums.end());
+        int k=0;
+        while(s.count(k))k++;
+        return k;
+    }
 public:
     int missingNumber(vector<int>& nums) {
-        int n = nums.size();
-
-        int k = (n * (n+1)) / 2;
-        int s = 0;
-        for(int i: nums) s+=i;
-
-        return k-s;
-
-
+       return mex(nums);
 
     }
 };
