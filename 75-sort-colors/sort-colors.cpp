@@ -1,3 +1,5 @@
+// using loop and swap
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
