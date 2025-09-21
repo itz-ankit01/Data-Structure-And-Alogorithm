@@ -2,26 +2,37 @@ class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
         int n = nums.size();
-        set<vector<int>> st; 
+        vector<vector<int>> ans;
+
+        sort(nums.begin(), nums.end());
 
         for(int i = 0; i < n; i++) {
+            if(i > 0 && nums[i] == nums[i-1]) continue;
             for(int j = i+1; j < n; j++) {
-                set<long long> hashset;
-                for(int k = j+1; k < n; k++) {
-                    long long sum = 1LL * target - nums[i] - nums[j] - nums[k];
+                if(j > i+1 && nums[j] == nums[j-1]) continue;
 
-                    if(hashset.find(sum) != hashset.end()) {
-                        vector<int> v = {nums[i], nums[j], nums[k], (int)sum};
-                        sort(v.begin(), v.end());  
-                        st.insert(v);             
+                int l = j+1, r = n-1;
+
+                while(l < r) {
+                    long long sum = 1LL * nums[i] + nums[j] + nums[l] + nums[r];
+                    if(sum == target * 1LL) {
+                        ans.push_back({nums[i], nums[j], nums[l], nums[r]});
+                        l++;
+                        r--;
+
+                        while(l < r && nums[l] == nums[l-1]) l++;
+                        while(l < r && nums[r] == nums[r+1]) r--; 
                     }
-                    hashset.insert(nums[k]); 
+                    else if(sum < target) {
+                        l++;
+                    }
+                    else if(sum > target) {
+                        r--;
+                    }
                 }
             }
         }
 
-     
-        vector<vector<int>> ans(st.begin(), st.end());
         return ans;
     }
 };
