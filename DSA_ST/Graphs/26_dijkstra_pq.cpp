@@ -15,7 +15,7 @@ class Solution {
                   adj[u].push_back({v, wt});
               
           }
-              
+              // {dist, node}
               priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
               pq.push({0, src});
               

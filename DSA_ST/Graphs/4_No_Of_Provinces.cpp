@@ -14,7 +14,7 @@ class Solution {
                 q.pop();
     
                 for(int v = 0; v < n; v++) {
-                    if(isConnected[u][v] == 1 && !vis[v]) {
+                    if(isConnected[u][v] == 1 && u!=v && !vis[v]) {
                         vis[v] = 1;
                         q.push(v);
                     }
