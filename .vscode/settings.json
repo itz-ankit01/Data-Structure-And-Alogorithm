@@ -6,6 +6,7 @@
         "vector": "cpp",
         "bitset": "cpp",
         "set": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "valarray": "cpp"
     }
 }
