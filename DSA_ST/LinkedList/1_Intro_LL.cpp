@@ -200,9 +200,9 @@ int main(){
     vector<int> arr = {1,6,3,2,66};
 
 // ------------------------- About Address -------------------------------
-    // Node* y = new Node(arr[0], nullptr);
-    // cout << y << endl;
-    // cout << y -> data ;
+    Node* y = new Node(arr[0], nullptr);
+    cout << y << endl;
+    cout << y -> data ;
 
 // ----------------------- Convert Array to LL & Traversal to LL O(n) ------------------------------
 
@@ -240,7 +240,7 @@ int main(){
     // head = insertAtPosition(head, 111, 1);
     // print(head);
 
-    head = insertBeforeValue(head, 1, 30);
-    print(head);
+    // head = insertBeforeValue(head, 1, 30);
+    // print(head);
     return 0;
 }
